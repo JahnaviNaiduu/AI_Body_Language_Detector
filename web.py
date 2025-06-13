@@ -1,5 +1,7 @@
 import mediapipe as mp
+import csv
 import cv2
+import numpy as np
 
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
@@ -52,3 +54,6 @@ with mp_holistic.Holistic(min_detection_confidence=0.5,
 
 cap.release()
 cv2.destroyAllWindows()
+
+#HAPPYDATA
+
