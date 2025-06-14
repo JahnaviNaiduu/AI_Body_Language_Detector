@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split  # Correct import
 # Load dataset
-df = pd.read_csv(r"C:\Workspace\AI_Body_Language_Detector\Dataset\coords.csv", header=None)
+df = pd.read_csv(r"C:\Users\91944\Documents\AI_Body_Language_Detector\Dataset\coords.csv", header=None)
 
 # Assign column names
 # Assuming first column is class label and rest are features
@@ -89,7 +89,7 @@ mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
 
