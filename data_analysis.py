@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split  # Correct import
 # Load dataset
-df = pd.read_csv(r"C:\Users\91944\Documents\AI_Body_Language_Detector\Dataset\coords.csv", header=None)
+df = pd.read_csv(r"Dataset\coords.csv", header=None)
 
 # Assign column names
 # Assuming first column is class label and rest are features
@@ -66,16 +66,16 @@ import pickle
 
 for algo,model in fit_models.items():
     yhat=model.predict(X_test)
-    print(algo,accuracy_score(y_test,yhat))
+    print("Accuracy", algo,accuracy_score(y_test,yhat))
 
 
 import os
 # Ensure directory exists
-os.makedirs(r'C:\Users\91944\Documents\AI_Body_Language_Detector\Model', exist_ok=True)
+os.makedirs(r'Model', exist_ok=True)
 # Save the model
-with open(r'C:\Users\91944\Documents\AI_Body_Language_Detector\Model\body_language.pkl', 'wb') as f:
+with open(r'Model\body_language.pkl', 'wb') as f:
     pickle.dump(fit_models['lr'], f)
-with open(r'C:\Users\91944\Documents\AI_Body_Language_Detector\Model\body_language.pkl', 'rb') as f:
+with open(r'Model\body_language.pkl', 'rb') as f:
     model=pickle.load(f)
 
 import mediapipe as mp
