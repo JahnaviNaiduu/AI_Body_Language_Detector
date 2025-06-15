@@ -48,7 +48,7 @@ from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 
 pipelines={
-    'lr':make_pipeline(SimpleImputer(strategy='mean'),StandardScaler(),LogisticRegression()),
+    'lr':make_pipeline(SimpleImputer(strategy='mean'),StandardScaler(),LogisticRegression(max_iter=1000)),
     'rc':make_pipeline(SimpleImputer(strategy='mean'),StandardScaler(),RidgeClassifier()),
     'rf':make_pipeline(SimpleImputer(strategy='mean'),StandardScaler(),RandomForestClassifier()),
     'gb':make_pipeline(SimpleImputer(strategy='mean'),StandardScaler(),GradientBoostingClassifier()),
@@ -77,6 +77,8 @@ with open(r'Model\body_language.pkl', 'wb') as f:
     pickle.dump(fit_models['lr'], f)
 with open(r'Model\body_language.pkl', 'rb') as f:
     model=pickle.load(f)
+print(type(model))
+
 
 import mediapipe as mp
 import csv
@@ -89,7 +91,7 @@ mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
 
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
 

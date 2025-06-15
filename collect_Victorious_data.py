@@ -62,6 +62,8 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
             with open('Dataset/coords.csv', mode='a', newline='') as f:
                 csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 csv_writer.writerow(row)
+            
+            print(f"Recorded data for class: {class_name}")
 
         except Exception:
             pass
