@@ -62,7 +62,7 @@ for algo,pipeline in pipelines.items():
 
 #ModelDeployment
 
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,f1_score
 import pickle
 
 for algo,model in fit_models.items():
@@ -70,6 +70,7 @@ for algo,model in fit_models.items():
     print("Accuracy", algo,accuracy_score(y_test,yhat))
     print("Confusion Matrix",algo,confusion_matrix(y_test,yhat))
     print("Classification Report",algo,classification_report(y_test,yhat))
+    print("F1 Score",algo,f1_score(y_test,yhat,average='weighted'))
 
 
 import os
