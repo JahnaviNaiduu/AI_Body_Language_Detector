@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split  # Correct import
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
 # Load dataset
 df = pd.read_csv(r"Dataset\coords.csv", header=None)
 
@@ -67,6 +68,8 @@ import pickle
 for algo,model in fit_models.items():
     yhat=model.predict(X_test)
     print("Accuracy", algo,accuracy_score(y_test,yhat))
+    print("Confusion Matrix",algo,confusion_matrix(y_test,yhat))
+    print("Classification Report",algo,classification_report(y_test,yhat))
 
 
 import os
